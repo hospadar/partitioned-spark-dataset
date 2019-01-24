@@ -2,11 +2,20 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.hospadaruk</groupId>
   <artifactId>partitioned-spark-dataset</artifactId>
-  <version>1.0</version>
-  <name>${project.artifactId}</name>
+  <version>1.0-SNAPSHOT</version>
+  <name>${project.groupId}:${project.artifactId}</name>
   <description>Helper classes to construct logically partitioned spark datasets without using hive support.</description>
+  <url>https://github.com/hospadar/partitioned-spark-dataset</url>
 
   <inceptionYear>2018</inceptionYear>
+
+  <developers>
+    <developer>
+      <name>Luke Hospadaruk</name>
+      <email>luke@hospadaurk.org</email>
+      <url>https://hospadaruk.org/</url>
+    </developer>
+  </developers>
 
   <licenses>
     <license>
@@ -15,6 +24,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
+  <scm>
+    <connection>scm:git:git://github.com/hospadar/partitioned-spark-dataset.git</connection>
+    <developerConnection>scm:git:ssh://github.com:hospadar/partitioned-spark-dataset.git</developerConnection>
+    <url>http://github.com/hospadar/partitioned-spark-dataset/tree/master</url>
+  </scm>
+
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -86,6 +102,65 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <distributionManagement>
+        <repository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+      </distributionManagement>
+      <build>
+        <plugins>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.0.1</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
