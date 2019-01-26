@@ -17,7 +17,7 @@ import org.apache.hadoop.conf.Configuration
 import org.apache.spark.sql.catalyst.expressions.{And, AttributeReference, EqualTo, ExprId, GreaterThanOrEqual, Literal}
 
 
-@Test
+
 class StaticFileIndexTest {
 
   val workingDir = new File(System.getProperty("user.dir")).getCanonicalPath
