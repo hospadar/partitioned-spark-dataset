@@ -3,6 +3,16 @@
 For creating **logically** partitioned Apache Spark datasets with ease, without being forced to store the underlying data in a 
 particular folder structure, **without** being forced to use a Hive metastore (or even enable Hive support in the Spark context)
 
+### Use Me
+This lib is available via [maven central](https://search.maven.org/artifact/org.hospadaruk/partitioned-spark-dataset/1.0/jar)
+```xml
+<dependency>
+  <groupId>org.hospadaruk</groupId>
+  <artifactId>partitioned-spark-dataset</artifactId>
+  <version>1.0</version>
+</dependency>
+``` 
+
 ### Spark? Partitions?
 The word "partition" is overloaded in Spark, it can mean the smallest unit of work which can be processed 
 by a single task, or in the context of Spark SQL, it can refer to a logical division of a large dataset which
