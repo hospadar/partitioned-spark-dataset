@@ -1,4 +1,4 @@
-# partitioned-Spark-dataset
+# partitioned-spark-dataset
 
 For creating **logically** partitioned Apache Spark datasets with ease, without being forced to store the underlying data in a 
 particular folder structure, **without** being forced to use a Hive metastore (or even enable Hive support in the Spark context)
